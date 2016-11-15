@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+Route::post('/script','HomeController@script');
 Route::get('/home', 'HomeController@index');

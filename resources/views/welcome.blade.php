@@ -93,10 +93,7 @@
 
                 <div class="links">
                     <a href="#">Documentation</a>
-                    <a href="#">Laracasts</a>
-                    <a href="#">News</a>
-                    <a href="#">Forge</a>
-                    <a href="#">GitHub</a>
+                    <a href="https://github.com/DedSecInside/">GitHub</a>
                 </div>
             </div>
         </div>

@@ -10,9 +10,13 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
         <!-- Styles -->
         <style>
+        .count{
+            font-family: 'Audiowide', cursive;
+            color: white;
+        }
             html, body {
                 background:url('/images/viper2.jpg');
                 background-repeat:no-repeat;
@@ -95,6 +99,7 @@
                     <a href="#">Documentation</a>
                     <a href="https://github.com/DedSecInside/">GitHub</a>
                 </div>
+                <h2 class="count">{{$count}}+ Scans Completed and Counting!</h2>
             </div>
         </div>
     </body>

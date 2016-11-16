@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/','HomeController@welcome');
 Auth::routes();
+Route::get('/results/{id}','HomeController@saves');
 Route::post('/script','HomeController@script');
+Route::post('/delete/{id}','HomeController@delete');
 Route::get('/home', 'HomeController@index');

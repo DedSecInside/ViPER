@@ -1,13 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+    .list-group-item:hover{
+        border-color: #3097D1;
+    }
+    </style>
 <div class="container">
     <div class="row" >
         <div class="col-md-12 col-md-offset-0">
-            <div class="panel panel-default">
+            <div class="panel panel-danger">
                 <div class="panel-heading">Console</div>
                 <div class="panel-body">
-                    <h3>Please provide the url to scan!</h3>
+                    <h3>Please provide the full url to scan!</h3>
                     <form action="/script" method="POST">
                         <label>URL:</label>
                         <input type="text" name="url">
@@ -17,6 +22,24 @@
                         <label>Save Output:</label>
                         <input type="checkbox" name="log" >
                     </form>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">Recent Saved Scan Results <span class="badge"> {{$count}}</span></div>
+                <div class="panel-body">
+                    <div class="list-group">
+                        @foreach($saves as $save)
+                        <a href="{{url('results',$save->id)}}" class="list-group-item">
+                            <h4 class="list-group-item-heading">www.{{$save->url}}</h4>
+                                <button class="btn btn-danger" onclick="document.getElementById('delete').submit();">
+                                Delete
+                            </button>
+                            <form id="delete" action="{{ url('delete',$save->id)}}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </a>
+                    @endforeach
+                    </div>
                 </div>
             </div>
         </div>

@@ -15,8 +15,12 @@ class Logs extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')
+            ->references('id')->on('users')
+            ->onDelete('cascade')->onUpdate('cascade');
             $table->string('url');
-            $table->text('output');
+            $table->longtext('output');
             $table->timestamps();
         });
     }

@@ -22,6 +22,27 @@
 </head>
 <body>
     <div id="app">
+    <style>
+    .navbar-default{
+        background:url('images/viper2.jpg');
+    }
+    .navbar-default .navbar-brand{
+        color:gold;
+
+    }
+    .navbar-default .navbar-brand:hover{
+        color:white;
+
+    }
+    .navbar-default .navbar-nav > li > a{
+        color:gold;
+
+    }
+    .navbar-default .navbar-nav > li > a:hover{
+        color:white;
+
+    }
+    </style>
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -60,6 +81,9 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{ url('/home') }}">
+                                            Home
+                                        </a>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

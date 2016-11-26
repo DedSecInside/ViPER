@@ -39,9 +39,16 @@ class HomeController extends Controller
     }
     public function script(Request $request)
     {
+        $xss=0;
+        $inj=0;
+        $head=0;
+        $crs=null;
+        $sql=null;
         $url = $request->get('url');
         $save = $request->get('log');
-        $process = new Process('cd ViPER && python3 viper.py -u '.$url);
+        $cross = $request->get('xss');
+        $sqli = $request->get('inj');
+        $process = new Process('cd ViPER && python3 ViPER.py -u '.$url.' -a');
         $process->setTimeout(3600);
         $process->run(function ($type, $buffer){
         });
@@ -51,6 +58,15 @@ class HomeController extends Controller
         $user = Auth::user();
         $user->scans +=1;
         $user->save();
+        if(strpos ($echo,'200')!=false ){
+            $head=substr_count($echo, "200");
+            $head = ($head/6)*100;
+        }
+        $xss=substr_count($echo, "Vulnerable to Clickjacking");
+        $xss = ($xss/1)*100;
+        $inj=substr_count($echo, "SQL Injection!");
+        $inj-=4;
+        $inj = ($inj/4)*100;
         if($save){
             $log = new Log();
             $log->url = $source;
@@ -58,8 +74,25 @@ class HomeController extends Controller
             $log->output=$process->getOutput();
             $log->save();
         }
+        if($cross){
+            $process = new Process('cd ViPER && python3 ViPER.py -u '.$url.' -A3');
+            $process->setTimeout(3600);
+            $process->run(function ($type, $buffer){
+            });
+            $crs = $process->getOutput();
 
-        return view('results')->withEcho($echo)->withSource($source);
+        }
+        if($sqli){
+            $process = new Process('cd ViPER && python3 ViPER.py -u '.$url.' -A1');
+            $process->setTimeout(3600);
+            $process->run(function ($type, $buffer){
+            });
+            $sql = $process->getOutput();
+
+        }
+
+        $overall=(($head+$inj+$xss)/300)*100;
+        return view('results')->withEcho($echo)->withSource($source)->withXss($xss)->withInj($inj)->withHead($head)->withCrs($crs)->withSql($sql)->withOverall($overall);
 
     }
     public function delete($id){

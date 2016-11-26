@@ -21,6 +21,10 @@
                         <br>
                         <label>Save Output:</label>
                         <input type="checkbox" name="log" >
+                        <label>Injection Attacks:</label>
+                        <input type="checkbox" name="inj" >
+                        <label>XSS:</label>
+                        <input type="checkbox" name="xss" >
                     </form>
                 </div>
             </div>
@@ -30,14 +34,13 @@
                     <div class="list-group">
                         @foreach($saves as $save)
                         <a href="{{url('results',$save->id)}}" class="list-group-item">
-                            <h4 class="list-group-item-heading">www.{{$save->url}}</h4>
-                                <button class="btn btn-danger" onclick="document.getElementById('delete').submit();">
+                            <h4 class="list-group-item-heading">www.{{$save->url}}</h4></a>
+                            <form id="delete" action="{{ url('delete',$save->id)}}" method="POST">
+                                <button class="btn btn-danger" type="submit">
                                 Delete
                             </button>
-                            <form id="delete" action="{{ url('delete',$save->id)}}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
-                        </a>
                     @endforeach
                     </div>
                 </div>

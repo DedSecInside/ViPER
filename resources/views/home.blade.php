@@ -17,17 +17,19 @@
                         <label>URL:</label>
                         <input type="text" name="url">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <input type="submit" class="btn btn-sm btn-primary" value="Scan">
+                        <input type="submit" class="btn btn-sm btn-primary" id="scan" value="Scan">
                         <br>
                         <label>Save Output:</label>
                         <input type="checkbox" name="log" >
                         <label>Injection Attacks:</label>
                         <input type="checkbox" name="inj" >
                         <label>XSS:</label>
-                        <input type="checkbox" name="xss" >
+                        <input type="checkbox" name="xss" >&nbsp;
+
                     </form>
                 </div>
             </div>
+
             <div class="panel panel-info">
                 <div class="panel-heading">Recent Saved Scan Results <span class="badge"> {{$count}}</span></div>
                 <div class="panel-body">
@@ -45,6 +47,13 @@
                     </div>
                 </div>
             </div>
+            <center>  <img src="/load1.gif" id="img" style="width=500px;height:300px;display:none;" > </center>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+            <script>
+            $('#scan').click(function(){
+                $('#img').show();
+            });
+            </script>
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@
         <title>ViPER™ - Pen Tester</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Coming+Soon" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
         <!-- Styles -->
@@ -18,11 +18,8 @@
             color: white;
         }
             html, body {
-                background:url('/images/viper2.jpg');
-                background-repeat:no-repeat;
-                background-position: center;
-                background-size: cover;
-                color: gold;
+                background-image: url('/1.png');
+                color: #ff5252;
                 font-family: 'Coming Soon', cursive;
                 font-weight: 100;
                 height: 100vh;
@@ -73,8 +70,8 @@
             }
             .title{
                 font-size: 120px;
-                font-family: 'Gloria Hallelujah', cursive;
-            }
+                font-family: 'Fugaz One', sans-serif;
+                            }
         </style>
     </head>
     <body>

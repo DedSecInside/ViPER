@@ -14,17 +14,13 @@
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
+
 </head>
 <body>
     <div id="app">
     <style>
     .navbar-default{
-        background:url('images/viper2.jpg');
+        background-color:#ff5252;
     }
     .navbar-default .navbar-brand{
         color:gold;
@@ -41,6 +37,16 @@
     .navbar-default .navbar-nav > li > a:hover{
         color:white;
 
+    }
+    .btn-danger{
+        background-color:#424242;
+    }
+    .panel-info >.panel-heading,.panel-danger > .panel-heading{
+        background-color: #ff5252;
+        color:white;
+    }
+    body{
+        background-color:#1b1e23;
     }
     </style>
         <nav class="navbar navbar-default navbar-static-top">

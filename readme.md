@@ -4,7 +4,7 @@ ViPER is a web app penetration testing tool. Developed in python. This repositor
 [ViPER WiKi](https://github.com/DedSecInside/ViPER/wiki)
 
 ##Contribute
-[ViPER WiKi](https://github.com/DedSecInside/ViPER/wiki/Contribute) 
+[Contributor Guide](https://github.com/DedSecInside/ViPER/wiki/Contribute) 
 
 
 ## License

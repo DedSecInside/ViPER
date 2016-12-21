@@ -76,7 +76,7 @@ class HomeController extends Controller
         }
         if($cross){
             $process = new Process('cd ViPER && python3 ViPER.py -u '.$url.' -A3');
-            $process->setTimeout(3600);
+            $process->setTimeout(360);
             $process->run(function ($type, $buffer){
             });
             $crs = $process->getOutput();
@@ -84,7 +84,7 @@ class HomeController extends Controller
         }
         if($sqli){
             $process = new Process('cd ViPER && python3 ViPER.py -u '.$url.' -A1');
-            $process->setTimeout(3600);
+            $process->setTimeout(360);
             $process->run(function ($type, $buffer){
             });
             $sql = $process->getOutput();

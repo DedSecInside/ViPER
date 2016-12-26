@@ -93,7 +93,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="#">Documentation</a>
+                    <a href="https://github.com/DedSecInside/wiki">Documentation</a>
                     <a href="https://github.com/DedSecInside/">GitHub</a>
                 </div>
                 <h2 class="count">{{$count}}+ Scans Completed and Counting!</h2>
